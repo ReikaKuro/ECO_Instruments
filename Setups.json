@@ -1,0 +1,57 @@
+{
+	"setups": {
+		"setup1": {
+			"instruments": {
+				"pdu": "255.255.255.255",
+				"SA": {
+					"ip": "255.255.255.255",
+					"port": "1",
+					"type": "RS",
+					"scpi_port" : "1111"
+				},
+				"SG": {
+					"ip": "255.255.255.255",
+					"port": "2",
+					"type": "RS",
+					"scpi_port" : "1111"
+				}
+			},
+			"PCs": {
+				"PC1": {
+					"ip": "255.255.255.255",
+					"login": "pc_username",
+					"password": "pc_password"
+				}
+			}
+		},
+		"setup2": {
+			"instruments": {
+				"pdu": "255.255.255.255",
+				"SA": {
+					"ip": "1255.255.255.255",
+					"port": "6",
+					"type": "KS",
+					"scpi_port" : "1111"
+				},
+				"SG": {
+					"ip": "255.255.255.255",
+					"port": "7",
+					"type": "RS",
+					"scpi_port" : "1111"
+				}
+			},
+			"PCs": {
+				"PC1": {
+					"ip": "255.255.255.255",
+					"login": "pc_username",
+					"password": "pc_password"
+				},
+				"PC2": {
+					"ip": "255.255.255.255",
+					"login": "pc_username",
+					"password": "pc_password"
+				}
+			}
+		}
+	}
+}
