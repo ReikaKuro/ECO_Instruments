@@ -4,7 +4,7 @@ import time
 import winrm.exceptions
 from winrm.protocol import Protocol
 from ping3 import ping
-import taf.pdu
+# import taf.pdu <-- find or create module that will communicate with GUDE PDU via SNMP
 import threading
 import logging
 from logging.handlers import RotatingFileHandler
@@ -22,8 +22,9 @@ class SetupInfo:
         self.pcs_info = mapped_setup[1]
 
         self.any_occupied = False
-        self.pdu_controller = taf.pdu.interface.pdu()
-        self.pdu_controller.setup_pdu(model='GUDE', version='8220-1', host=self.instrument_pdu)
+        # find or create module that will communicate with GUDE PDU via SNMP
+        self.pdu_controller = 0 #taf.pdu.interface.pdu()
+        # self.pdu_controller.setup_pdu(model='GUDE', version='8220-1', host=self.instrument_pdu)
 
         self.is_logged_in = None
         self.idle = None
