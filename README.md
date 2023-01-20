@@ -33,7 +33,7 @@ Works for R&S FSV, SMW, SMBV and Keysight
 
 ## Example Setups.json
 
-Respect there order:
+Respect this order:
 
     |Setups
         |setup1
