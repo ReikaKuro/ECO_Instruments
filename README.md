@@ -126,8 +126,8 @@ _
 					"ip": "255.255.255.255",
 					"login": "pc_username",
 					"password": "pc_password"
-				}
-			}
-		}
-	}
-}
+                    }
+                }
+            }
+        }
+    }
