@@ -50,9 +50,10 @@ Respect this order:
                     |type
                     |scpi_port
             |PCs
-                |ip
-                |login
-                |password
+                |PC1
+                    |ip
+                    |login
+                    |password
         |setup2
             |instruments
                 |pdu
@@ -67,9 +68,14 @@ Respect this order:
                     |type
                     |scpi_port
             |PCs
-                |ip
-                |login
-                |password
+                |PC1
+                    |ip
+                    |login
+                    |password
+                |PC2
+                    |ip
+                    |login
+                    |password
     etc.
 
 _
