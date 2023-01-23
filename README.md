@@ -15,9 +15,9 @@ Works for R&S FSV, SMW, SMBV and Keysight
 ### How it works
 - Instruments are mapped to PCs which might user it and PDU of GUDE.
 - Instruments are only in use if someone is occupying one of setups that is linked to it
-- Script monitors setups from 22:00 to 6:00 every 10 minutes
+- Script monitors setups from 22:00 to 6:00 and all day in weekends every 10 minutes
 - If someone is occupying one of setups, script will skip all further actions regarding this set of instruments and will start checking next one
-- If setup between 22:00 and 6:00 setup is not occupied for more than hour, starts procedure of turning off device completely as safe as possible
+- If between 22:00 and 6:00 or in all day in weekends setup is not occupied for more than hour, starts procedure of turning off device completely as safe as possible
 - Device is turned off firstly, if communication with device stops in 30 seconds, script will wait (can be changed by <b>chaning wait_before_turn_off_pdu</b> 
  value) 5 minutes to let the device end all the process and shutdown completely. After that time, power on the PDU will be cut off
 
@@ -29,7 +29,7 @@ Works for R&S FSV, SMW, SMBV and Keysight
         python -m pip install --upgrade -r requirements.txt
     
     3.  Install tad.pfu using:
-        # TODO write new package for controlling GUDE PDUs
+        python -m pip install --upgrade taf.pdu -i https://artifactory-espoo1.int.net.nokia.com/artifactory/api/pypi/rfsw-pypi-virtual/simple/ 
 
 ## Example Setups.json
 
@@ -44,16 +44,17 @@ Respect this order:
                     |port
                     |type
                     |scpi_port
+                    |turn_off
                 |sg
                     |ip
                     |port
                     |type
                     |scpi_port
+                    |turn_off
             |PCs
-                |PC1
-                    |ip
-                    |login
-                    |password
+                |ip
+                |login
+                |password
         |setup2
             |instruments
                 |pdu
@@ -62,20 +63,17 @@ Respect this order:
                     |port
                     |type
                     |scpi_port
+                    |turn_off
                 |sg
                     |ip
                     |port
                     |type
                     |scpi_port
+                    |turn_off
             |PCs
-                |PC1
-                    |ip
-                    |login
-                    |password
-                |PC2
-                    |ip
-                    |login
-                    |password
+                |ip
+                |login
+                |password
     etc.
 
 _
@@ -90,12 +88,14 @@ _
 					"port": "1", <-- port to which instrument is connected
 					"type": "RS", <-- R&S, or KS if Keysight
 					"scpi_port" : "1111" <-- scpi_port on instrument through which shutdown command can be executed
+					"turn_off": "true"
 				},
 				"SG": {
 					"ip": "255.255.255.255",
 					"port": "2",
 					"type": "RS",
 					"scpi_port" : "1111"
+					"turn_off": "false"
 				}
 			},
 			"PCs": {
@@ -114,12 +114,14 @@ _
 					"port": "6",
 					"type": "RS",
 					"scpi_port" : "1111"
+					"turn_off": "true"
 				},
 				"SG": {
 					"ip": "255.255.255.255",
 					"port": "7",
 					"type": "KS",
 					"scpi_port" : "1111"
+					"turn_off": "true"
 				}
 			},
 			"PCs": {        <---- multiple PCs validation
